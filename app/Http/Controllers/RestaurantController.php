@@ -9,12 +9,14 @@ class RestaurantController extends Controller
 {
     public function list($id)
     {
-
+        $alma = RestaurantService::getbyid($id);
+        return response()->json($alma,200);
     }
 
     public function listall()
     {
-
+        $restaurants = RestaurantService::getAll();
+        return response()->json($restaurants,200);
 
     }
 }
