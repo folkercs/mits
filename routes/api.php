@@ -6,6 +6,7 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\DBController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -24,5 +25,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/reservations/{id}',[ReservationController::class,'listres']);
     Route::post('/reservations',[ReservationController::class,'storeres']);
 
+    Route::post('/user/registration', [UserController::class,'regist']);
+    Route::post('/user/auth', [UserController::class,'auth']);
 
 });
